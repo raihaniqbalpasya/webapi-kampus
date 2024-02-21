@@ -6,6 +6,11 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
+// main routes
+app.get("/", (req, res) => {
+  res.send("This is Main Routes!");
+});
+
 // routes definition
 const kampusControllers = require("./app/controllers/kampusControllers");
 
