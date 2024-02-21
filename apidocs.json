@@ -1,0 +1,294 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Web API - Kampus",
+    "description": "Web API sederhana dengan tema perkuliahan/kampus",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "local"
+    },
+    {
+      "url": "https://webapi-kampus.vercel.app",
+      "description": "deployed"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Kampus",
+      "description": "Dokumentasi Endpoint Kampus"
+    }
+  ],
+  "paths": {
+    "/api/v1/mahasiswa": {
+      "get": {
+        "tags": ["Kampus"],
+        "summary": "Get All Mahasiswa",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Succesfully get all data"
+          },
+          "404": {
+            "description": "Data empty, please input some data!"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Kampus"],
+        "summary": "Create Mahasiswa",
+        "description": "",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nama": {
+                    "type": "string"
+                  },
+                  "nim": {
+                    "type": "integer"
+                  },
+                  "prodi": {
+                    "type": "string"
+                  },
+                  "fakultas": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "umur": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "nama": "mahasiswa 1",
+                "nim": 12345,
+                "prodi": "S1 Manajemen Bisnis",
+                "fakultas": "Ekonomi",
+                "email": "mahasiswa1@gmail.com",
+                "umur": 21
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Succesfully create data"
+          }
+        }
+      }
+    },
+    "/api/v1/mahasiswa/{id}": {
+      "get": {
+        "tags": ["Kampus"],
+        "summary": "Get Mahasiswa By Id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID Mahasiswa",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succesfully get data by id"
+          },
+          "404": {
+            "description": "Data not found or deleted"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Kampus"],
+        "summary": "Update Mahasiswa By Id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID Mahasiswa",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nama": {
+                    "type": "string"
+                  },
+                  "nim": {
+                    "type": "integer"
+                  },
+                  "prodi": {
+                    "type": "string"
+                  },
+                  "fakultas": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "umur": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "nama": "mahasiswa 1",
+                "nim": 12345,
+                "prodi": "S1 Manajemen Bisnis",
+                "fakultas": "Bisnis",
+                "email": "mahasiswa1@gmail.com",
+                "umur": 19
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Succesfully update data"
+          },
+          "404": {
+            "description": "Data not found or deleted"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Kampus"],
+        "summary": "Delete Mahasiswa By Id",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID Mahasiswa",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succesfully delete data"
+          },
+          "404": {
+            "description": "Data not found or deleted"
+          }
+        }
+      }
+    },
+    "/api/v1/mahasiswa/and/dosen": {
+      "post": {
+        "tags": ["Kampus"],
+        "summary": "Create Mahasiswa And Dosen",
+        "description": "",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nama": {
+                    "type": "string"
+                  },
+                  "nim": {
+                    "type": "integer"
+                  },
+                  "prodi": {
+                    "type": "string"
+                  },
+                  "fakultas": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "umur": {
+                    "type": "integer"
+                  },
+                  "namaDosen": {
+                    "type": "string"
+                  },
+                  "nidn": {
+                    "type": "integer"
+                  },
+                  "dosenFakultas": {
+                    "type": "string"
+                  },
+                  "umurDosen": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "nama": "mahasiswa 2",
+                "nim": 54321,
+                "prodi": "S1 Ilmu Komputer",
+                "fakultas": "Informatika",
+                "email": "mahasiswa2@gmail.com",
+                "umur": 21,
+
+                "namaDosen": "dosen1",
+                "nidn": 12345,
+                "dosenFakultas": "Ekonomi",
+                "umurDosen": 28
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Succesfully create data"
+          }
+        }
+      }
+    },
+    "/api/v1/dosen?dosenFakultas=": {
+      "get": {
+        "tags": ["Kampus"],
+        "summary": "Get Dosen By Fakultas",
+        "description": "",
+        "parameters": [
+          {
+            "name": "dosenFakultas",
+            "in": "query",
+            "required": true,
+            "description": "Dosen Fakultas",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Succesfully get data dosen by fakultas"
+          },
+          "404": {
+            "description": "Data not found or deleted"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,10 +1,15 @@
 const express = require("express");
 const cors = require("cors");
+const swaggerUi = require("swagger-ui-express");
 const app = express();
 const port = 3000;
 
 app.use(cors());
 app.use(express.json());
+
+// swagger-ui
+const apiDocs = require("./apidocs.json", { type: "json" });
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(apiDocs));
 
 // main routes
 app.get("/", (req, res) => {
