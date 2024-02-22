@@ -1,6 +1,12 @@
 # Web API - Kampus
 Sebuah web API sederhana yang memiliki tema website perkuliahan/kampus
 
+## Cara Penggunaan
+* Silahkan clone repository ini
+* Kemudian jalankan "npm start" pada terminal
+* Selamat menggunakan web API ini menggunakan link server local!
+* Atau kamu juga bisa langsung menggunakan link server deployed tanpa harus clone repository ini :grin:
+
 ## Link Server
 * Local = http://localhost:3000
 * Deployed = https://webapi-kampus.vercel.app
